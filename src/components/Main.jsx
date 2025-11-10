@@ -40,7 +40,15 @@ export default function Main({ array }) {
         setNewTitle(updatedArticles)
     }
 
+    function handleChange(id) {
+        console.log(id);
+        const updatedArticle = articles.find(article => article.id === id)
+        updatedArticle.title = prompt("enter the edited title")
+        console.log(updatedArticle);
+        articles.push(updatedArticle)
+        setNewTitle(articles)
 
+    }
 
 
     return (
@@ -81,7 +89,7 @@ export default function Main({ array }) {
 
                                         <li key={article.id} className="list-group-item">
                                             {article.title}
-                                            <button onClick={() => handleChange(article, article.id)} className="btn btn-sm ms-5">
+                                            <button onClick={() => handleChange(article.id)} className="btn btn-sm ms-5">
                                                 <i className="bi bi-pencil-square"></i>
                                             </button>
                                             <button onClick={() => handleRemove(article.id)} className="btn btn-sm ms-1">
