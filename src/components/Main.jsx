@@ -17,7 +17,7 @@ export default function Main({ articles }) {
             title
         }
         console.log(newTitleObj);
-        setNewTitle([...articles, newTitleObj])
+        setNewTitle([...newTitle, newTitleObj])
     }
 
     function handleRemove(id) {
@@ -28,11 +28,18 @@ export default function Main({ articles }) {
 
     function handleChange(id) {
         console.log(id);
-        const updatedArticle = articles.find(article => article.id === id)
-        updatedArticle.title = prompt("enter the edited title")
-        console.log(updatedArticle);
-        articles.push(updatedArticle)
-        setNewTitle(articles)
+        // const updatedArticle = articles.find(article => article.id === id)
+        // updatedArticle.title = prompt("enter the edited title")
+        // console.log(updatedArticle);
+        // console.log(articles);
+        // setNewTitle(articles)
+
+        newTitle.map(article => {
+            if (article.id === id) {
+                article.title = prompt("enter the edited title")
+                return
+            }
+        })
 
     }
 
