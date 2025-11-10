@@ -27,7 +27,7 @@ function App() {
 
       <Header />
 
-      <Main array={articles} />
+      <Main articles={articles} />
 
       <Footer />
 
