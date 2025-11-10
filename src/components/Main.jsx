@@ -32,9 +32,15 @@ export default function Main({ array }) {
         }
         console.log(newTitleObj);
         setNewTitle([...articles, newTitleObj])
-
-
     }
+
+    function handleRemove(id) {
+        console.log(id);
+        const updatedArticles = articles.filter(article => article.id != id)
+        setNewTitle(updatedArticles)
+    }
+
+
 
 
     return (
@@ -70,12 +76,17 @@ export default function Main({ array }) {
 
                             <ul className="list-group list-group-flush text-center">
                                 {newTitle.map(article => {
-                                    console.log(article.id);
 
                                     return (
 
                                         <li key={article.id} className="list-group-item">
                                             {article.title}
+                                            <button onClick={() => handleChange(article, article.id)} className="btn btn-sm ms-5">
+                                                <i className="bi bi-pencil-square"></i>
+                                            </button>
+                                            <button onClick={() => handleRemove(article.id)} className="btn btn-sm ms-1">
+                                                <i className="bi bi-trash-fill"></i>
+                                            </button>
                                         </li>
                                     )
                                 })}
