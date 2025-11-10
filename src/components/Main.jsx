@@ -33,13 +33,27 @@ export default function Main({ articles }) {
         // console.log(updatedArticle);
         // console.log(articles);
         // setNewTitle(articles)
+        const title = prompt("enter the edited title")
 
-        newTitle.map(article => {
+        const updated = newTitle.map(article => {
+            console.log(article.id);
+            console.log(title);
+            console.log(article.title);
+
+
+
             if (article.id === id) {
-                article.title = prompt("enter the edited title")
-                return
+
+                return {
+                    id,
+                    title
+                }
+            } else {
+                return article
             }
         })
+
+        setNewTitle(updated)
 
     }
 
